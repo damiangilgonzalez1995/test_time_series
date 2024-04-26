@@ -1,0 +1,30 @@
+ARIMA:
+  start_params: [0,0,0]
+  max_params: [5,5,5]
+  start_params_seasonal: [0,0,0]
+  max_params_seasonal: [5,5,5]
+  information_criterion: aic
+  seasonal: true
+  sp: 12
+
+LinearRegression:
+  strategy: recursive
+  window_length: 24
+
+XGB:
+  validation_size: 26
+  strategy: recursive
+  window_length: 24
+  estimator__max_depth: [3, 5, 6, 10, 15, 20]
+  estimator__learning_rate: [0.01, 0.1, 0.2, 0.3]
+  estimator__n_estimators: [100, 500, 1000]
+  deseasonalize__sp: [12, 4, 3, 6]
+  detrend__forecaster__degree: [1, 2, 3, 4]
+  deseasonalize__model: ['multiplicative', 'additive']
+
+EXPONENTIAL_SMOOTHING:
+  estimator__seasonal: ['multiplicative', 'additive']
+  estimator__sp: [12, 4, 3, 6]
+  estimator__trend: ['add']
+
+
